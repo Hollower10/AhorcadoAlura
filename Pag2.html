@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+  <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hangman Ready</title>
+    <link rel="stylesheet" href="style2.css">
+  </head>
+  <body>
+    <header>
+      <h1>!Welcome to Hangman Game¡</h1>
+      <img class="logo" src="imgs/Vectorlogo.png" alt="logo alura">
+      
+    </header>
+    <div class="hombre-ahorcado">
+      <img id="hombre" alt="hombre-ahorcado" />
+    </div>
+    <div class="adivinado"></div>
+    <div class="errado"></div>
+    <form class="botones" action="javascript:void(0)">
+      <input type="button" class="btn-azul" value="Nuevo juego" onclick="nuevoJuego()"/>
+      <input type="button" value="Desistir"  onclick="location.href='Index.html';"/>
+    </form>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
