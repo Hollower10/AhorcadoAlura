@@ -1,19 +1,29 @@
-;(function(){
-'use strict'
-alert
-var palabras = [
-  'ALURA',
-  'CHALLENGE',
-  'AHORCADO',
-  'PROGRAMAR',
-  'ORACLE',
-  'GIT'
-]
 
-// variable para almacenar la configuracion actual
-var juego = null
-// para ver si ya se ha enviado alguna alerta
-var finalizado = false
+
+
+var palabras = [
+    'ALURA',
+    'CHALLENGE',
+    'AHORCADO',
+    'PROGRAMAR',
+    'ORACLE',
+    'GIT'
+]
+function addWord() {
+  var btnGuardarEmpezar = document.querySelector(".guardar");
+  btnGuardarEmpezar.addEventListener("click", function(event) {
+      var entrada = document.querySelector(".input-palabra");
+      palabras.push(entrada.value);
+      console.log(palabras);
+      swal("palabra agregada");
+      
+      
+  })
+  nuevoJuego()
+}
+     
+
+
 
 
 var $html = {
@@ -31,7 +41,7 @@ function dibujar(juego) {
   if (estado === 8) {
     estado = juego.previo
   }
-  $elem.src = './imgs/estados/0' + estado + '.png'
+  $elem.src="imgs/estados/0" + estado + '.png'
 
   // Creamos las letras adivinadas
   var palabra = juego.palabra
@@ -100,7 +110,7 @@ function adivinar(juego, letra) {
   }
 }
 
-window.onkeypress = function adivinarLetra(e) {
+document.onkeypress = function adivinarLetra(e) {
   var letra = e.key
   letra = letra.toUpperCase()
   if (/[^A-ZÑ]/.test(letra)) {
@@ -117,7 +127,7 @@ window.onkeypress = function adivinarLetra(e) {
     setTimeout(fn, 0)
     finalizado = true
   }
-  dibujar(juego)
+  dibujar(juego);
 }
 
 window.nuevoJuego = function nuevoJuego() {
@@ -140,9 +150,8 @@ window.nuevoJuego = function nuevoJuego() {
   console.log(juego)
 }
 
-
 function palabraAleatoria() {
-  var index = ~~(Math.random() * palabras.length)
+  var index = [Math.floor(Math.random() * palabras.length)]
   return palabras[index]
 }
 
@@ -151,9 +160,9 @@ function alertaGanado() {
 }
 
 function alertaPerdido(palabra) {
-  swal('Lo siento, perdiste... la palabra era: ' + palabra)
+  swal('Perdiste, la palabra era: ' + palabra)
 }
 
 nuevoJuego()
 
-}())
+
